@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-indigo-custom: #1E1B4B;
+  --color-emerald-custom: #10B981;
+  --color-crimson-custom: #EF4444;
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #0B0A1A; /* A dark shade that compliments deeply indigo */
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.bento-card {
+  @apply bg-glass-bg border border-glass-border shadow-lg rounded-[24px] backdrop-blur-[10px];
+}
