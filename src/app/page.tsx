@@ -24,6 +24,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
+import { toast } from "sonner";
 
 // Supabase and Gemini fetch mockup simulation
 interface ForecastData {
@@ -164,18 +165,18 @@ export default function Dashboard() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-custom to-emerald-custom flex items-center justify-center shadow-lg mb-8">
             <TrendingUp className="text-white w-6 h-6" />
           </div>
-          <button className="p-3 rounded-xl bg-glass-bg text-emerald-custom shadow-lg transition-all hover:scale-110">
+          <button onClick={() => toast("Dashboard active")} className="p-3 rounded-xl bg-glass-bg text-emerald-custom shadow-lg transition-all hover:scale-110">
             <LayoutDashboard size={24} />
           </button>
-          <button className="p-3 rounded-xl text-gray-400 hover:text-white transition-all hover:scale-110 hover:bg-glass-bg">
+          <button onClick={() => toast("Analytics incoming")} className="p-3 rounded-xl text-gray-400 hover:text-white transition-all hover:scale-110 hover:bg-glass-bg">
             <BarChart2 size={24} />
           </button>
-          <button className="p-3 rounded-xl text-gray-400 hover:text-white transition-all hover:scale-110 hover:bg-glass-bg">
+          <button onClick={() => toast("Risk Settings")} className="p-3 rounded-xl text-gray-400 hover:text-white transition-all hover:scale-110 hover:bg-glass-bg">
             <ShieldAlert size={24} />
           </button>
         </div>
         <div>
-          <button className="p-3 rounded-full bg-glass-bg text-gray-400 hover:text-white transition-all">
+          <button onClick={() => toast("Profile Switcher")} className="p-3 rounded-full bg-glass-bg text-gray-400 hover:text-white transition-all">
             <span className="block w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"></span>
           </button>
         </div>
@@ -311,11 +312,11 @@ export default function Dashboard() {
           <motion.div variants={itemVariants} className="bento-card p-6 flex flex-col justify-between">
             <h3 className="text-sm font-medium text-gray-400 mb-4">Quick Actions</h3>
             <div className="flex flex-col gap-3 h-full justify-end">
-              <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-custom to-blue-900 border border-indigo-custom text-white py-3 px-4 rounded-xl hover:shadow-[0_0_15px_rgba(30,27,75,0.8)] transition-all hover:-translate-y-0.5 font-medium text-sm">
+              <button onClick={() => toast.success("Upload successful", { description: "Processing bank statement..." })} className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-custom to-blue-900 border border-indigo-custom text-white py-3 px-4 rounded-xl hover:shadow-[0_0_15px_rgba(30,27,75,0.8)] transition-all hover:-translate-y-0.5 font-medium text-sm">
                 <Upload size={16} />
                 Upload Statement
               </button>
-              <button className="w-full flex items-center justify-center gap-2 bg-glass-bg border border-glass-border text-white py-3 px-4 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-0.5 font-medium text-sm">
+              <button onClick={() => toast.success("Expense form opened")} className="w-full flex items-center justify-center gap-2 bg-glass-bg border border-glass-border text-white py-3 px-4 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-0.5 font-medium text-sm">
                 <Plus size={16} />
                 Add Expense
               </button>
